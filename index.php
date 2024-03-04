@@ -28,6 +28,7 @@ require_once __DIR__ . "/store.php";
                     <th class="text-warning">Title</th>
                     <th class="text-warning">Original Language</th>
                     <th class="text-warning">Rate</th>
+                    <th class="text-warning">Genre</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,9 +36,10 @@ require_once __DIR__ . "/store.php";
                 <?php foreach( $films as $film): ?>
                 <tr>
                     <!-- single production values -->
-                    <td class='text-uppercase'><?= $film->get_title()?></td>
+                    <td class='text-uppercase fw-semibold'><?= $film->get_title()?></td>
                     <td><?= $film->original_lang ?></td>
                     <td><?= $film->rate ?></td>
+                    <td><?= $film->genre->name ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

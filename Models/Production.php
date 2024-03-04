@@ -6,14 +6,16 @@ class Production{
     public $title;
     public $original_lang;
     public $rate;
+    public $genre;
 
     // class construct
     public function __construct(
-       String $title, String $original_lang, float $rate
+       String $title, String $original_lang, float $rate, Genre $genre
     ){
         $this->title = $title;
         $this->original_lang = $original_lang;
         $this->rate = $rate;
+        $this->genre = $genre;
     }
 
     /**
