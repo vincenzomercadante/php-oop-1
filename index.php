@@ -1,3 +1,35 @@
+<?php
+
+class Production{
+
+    public $title;
+    public $original_lang;
+    public $rate;
+
+
+    public function __construct(
+       String $title, String $original_lang, int $rate
+    ){
+        $this->title = $title;
+        $this->original_lang = $original_lang;
+        $this->rate = $rate;
+    }
+
+    public function get_title(){
+        return $this->title;
+    }
+
+    public function set_rate($new_rate){
+        $this->rate = $new_rate;
+    }
+    
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
