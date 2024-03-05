@@ -1,10 +1,9 @@
 <?php
 
 // include store file
-require_once __DIR__ . "/store.php";
+require_once __DIR__ . "/database/store.php";
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
@@ -29,18 +28,33 @@ require_once __DIR__ . "/store.php";
                     <th class="text-warning">Original Language</th>
                     <th class="text-warning">Rate</th>
                     <th class="text-warning">Genre</th>
+                    <th class="text-warning">Duration</th>
+                    <th class="text-warning">Earnings</th>
+                    <th class="text-warning">Seasons</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- production generator -->
-                <?php foreach( $films as $film): ?>
-                <tr>
-                    <!-- single production values -->
-                    <td class='text-uppercase fw-semibold'><?= $film->get_title()?></td>
-                    <td><?= $film->original_lang ?></td>
-                    <td><?= $film->rate ?></td>
-                    <td><?= $film->genre->name ?></td>
-                </tr>
+                <?php foreach( $productions as $production): ?>
+                
+                    <tr>
+                        <!-- single production values -->
+                        <td class='text-uppercase fw-semibold'><?= $production->get_title()?></td>
+                        <td><?= $production->original_lang ?></td>
+                        <td><?= $production->rate ?></td>
+                        <td><?= $production->genre->name ?></td>
+
+                        <?php if($production instanceof Movie): ?>
+                            <td><?= $production->duration .'h'?></td>
+                            <td><?= $production->profits . '$'?></td>
+                            <td><?= '/' ?></td>
+                        <?php else: ?>
+                            <td><?= '/' ?></td>
+                            <td><?= '/' ?></td>
+                            <td><?= $production->seasons ?></td>
+                        <?php endif ?>
+                    </tr>
+
                 <?php endforeach; ?>
             </tbody>
         </table>
