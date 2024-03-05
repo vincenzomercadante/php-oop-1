@@ -10,12 +10,12 @@ class TVSerie extends Production{
         String $title,
         String $original_lang,
         float $rate,
-        Genre $genre,
+        array $genres,
         int $season,
     ){
 
         // calling ancestor's constructor method
-        parent::__construct($title, $original_lang, $rate, $genre);
+        parent::__construct($title, $original_lang, $rate, $genres);
         
         // descendant attribute assignment
         $this->seasons = $season;

@@ -11,12 +11,12 @@ class Movie extends Production{
         String $title,
         String $original_lang,
         float $rate,
-        Genre $genre,
+        array $genres,
         String $profits,
         String $duration,
     ){
         // calling the ancestor constructor method
-        parent::__construct($title, $original_lang, $rate, $genre);
+        parent::__construct($title, $original_lang, $rate, $genres);
         
         // descendant attributes assignments 
         $this->profits = $profits;

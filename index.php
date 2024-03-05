@@ -42,7 +42,13 @@ require_once __DIR__ . "/database/store.php";
                         <td class='text-uppercase fw-semibold'><?= $production->get_title()?></td>
                         <td><?= $production->original_lang ?></td>
                         <td><?= $production->rate ?></td>
-                        <td><?= $production->genre->name ?></td>
+                        
+                        <td>
+                            <!-- genres generator -->
+                            <?php foreach( $production->genres as $genre ): ?>
+                                <?= $genre->name . ' '?>
+                            <?php endforeach; ?>
+                        </td>
 
                         <?php if($production instanceof Movie): ?>
                             <td><?= $production->duration .'h'?></td>
